@@ -9,8 +9,16 @@ function fetch_data(){
   $('#signature').jSignature('reset');
   $('#svg').empty().append(paths);
   new Vivus('svg', {type: 'oneByOne',duration: 500});
-
 }
+
+function reset_data(){
+  $('#signature').jSignature('reset');
+}
+
+function review(){
+  new Vivus('svg', {type: 'oneByOne',duration: 500});
+}
+
 
 function generate_record(){
   var datapair = $("#signature").jSignature("getData", "svgbase64")
