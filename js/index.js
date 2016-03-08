@@ -1,16 +1,13 @@
 $(function() {
  $("#signature").jSignature();
- var mySVG = $('#signSvg').drawsvg();
- mySVG.drawsvg('animate');
 })
 
 function fetch_data(){
   generate_record()
   var data = $("#signature").jSignature("getData", "svg");
-  $('#show').empty().append(data[1]).drawsvg();
-  var mySVG = $('svg').drawsvg();
-  mySVG.drawsvg('animate');
-  $('#signature').jSignature('reset');
+  var paths = $(data[1]).find("path")
+  $('#svg').empty().append(paths);
+  new Vivus('svg', {type: 'oneByOne',duration: 500});
 }
 
 function generate_record(){
